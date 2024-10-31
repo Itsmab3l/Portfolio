@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #222;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero img.active {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            position: relative;
+            font-size: 3em;
+            z-index: 2;
+        }
+
+        /* About Section */
+        .about, .menu, .contact {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            font-size: 1em;
+        }
+
+        /* Contact Section */
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact button {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+    </header>
+
+   
+    <section class="hero">
+        <h1>Welcome to Our Restaurant</h1>
+        <img src="header.jpg" class="active" alt="Delicious Food 1">
+        <img src="header2.jpg" alt="Delicious Food 2">
+        <img src="header3.jpg" alt="Delicious Food 3">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about container">
+        <h2>About Us</h2>
+        <p>We are a family-owned restaurant serving delicious and freshly prepared meals. Our dishes are made with love and the freshest ingredients, ensuring a great dining experience.</p>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu container">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Grilled Salmon</h3>
+                <p>Freshly grilled salmon with a side of vegetables and a lemon butter sauce.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Caesar Salad</h3>
+                <p>Classic Caesar salad with crisp romaine lettuce, Parmesan cheese, and croutons.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Pasta Carbonara</h3>
+                <p>Creamy carbonara pasta with pancetta, Parmesan, and a hint of garlic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact container">
+        <h2>Contact Us</h2>
+        <form action="#">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- JavaScript for Rotating Images -->
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".hero img");
+
+        function rotateImages() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex
