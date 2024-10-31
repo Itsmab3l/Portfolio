@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #222;
+        }
+
+       
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+    
+        .navbar {
+            background-color: #eee;
+            color: #fff;
+            padding: 15px 0;
+            text-align: right;
+			
+        }
+		.navbar .logo {
+    margin-left: 15px;
+			height: 100px;}
+
+        .navbar a {
+            color: #000;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+       
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero img.active {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            position: relative;
+            font-size: 48px;
+            z-index: 2;
+			color: #eee;
+        }
+		.hero h2{position: relative;
+            font-size: 25px;
+            z-index: 2;
+			color: #eee;}
+
+        /* About Section */
+        .about, .menu, .contact {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+       
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            font-size: 1em;
+        }
+
+        
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact button {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+       
+        @media (max-width: 768px) {
+            .menu-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <header class="navbar">
+	 <img src="logo.png" alt="Restaurant Logo" class="logo">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+    </header>
+
+   
+    <section class="hero">
+      <h1><strong>Welcome to Tranquillo y Tropical</strong></h1>
+      <h2>Where Flavor Meets Relaxation</h2>
+<img src="header.jpg" class="active" alt="Cheeseburger and Fries">
+        <img src="header2.jpg" alt="Bowl of Pasta">
+        <img src="header3.jpg" alt="Bowl of Salad">
+    </section>
+
+
+    <section id="about" class="about container">
+      <h2>About Us</h2>
+        <p>We are a family-owned restaurant serving delicious and freshly prepared meals. Our dishes are made with love and the freshest ingredients, ensuring a great dining experience.</p>
+    </section>
+
+ 
+    <section id="menu" class="menu container">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Grilled Salmon</h3>
+                <p>Freshly grilled salmon with a side of vegetables and a lemon butter sauce.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Caesar Salad</h3>
+                <p>Classic Caesar salad with crisp romaine lettuce, Parmesan cheese, and croutons.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Pasta Carbonara</h3>
+                <p>Creamy carbonara pasta with pancetta, Parmesan, and a hint of garlic.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact container">
+        <h2>Contact Us</h2>
+        <form action="#">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+  
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".hero img");
+
+        function rotateImages() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+        }
+
+        setInterval(rotateImages, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>
