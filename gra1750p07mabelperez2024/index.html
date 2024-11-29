@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter and the Sorcerer's Stone</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #fff;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-family: 'Harry P', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffd700; 
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700; 
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .about-section {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .characters-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; 
+        }
+
+        .character-photos {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+        }
+
+        .character {
+            text-align: center;
+        }
+
+        .character img {
+            width: 150px;
+            height: 200px;
+            border: 2px solid #ffd700;
+            border-radius: 5px;
+        }
+
+        .gallery img {
+            margin: 10px;
+            border: 2px solid #ffd700;
+            width: 400px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+       
+
+        h1, h2 {
+            font-family: 'Harry P', serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Harry Potter and the Sorcerer's Stone</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#characters">Characters</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="about-section">
+            <h2>About the Movie</h2>
+            <p>
+                Harry Potter and the Sorcerer's Stone is the first film in the magical Harry Potter series, based on the book by J.K. Rowling. 
+                Join Harry as he discovers he's a wizard, attends Hogwarts School of Witchcraft and Wizardry, and faces the dark wizard Voldemort for the first time.
+            </p>
+        </section>
+
+        <section id="characters" class="characters-section">
+            <h2>Main Characters</h2>
+            <div class="character-photos">
+                <div class="character">
+                    <img src="harry.jpg" alt="Harry Potter">
+                    <p>Harry Potter</p>
+                </div>
+                <div class="character">
+                    <img src="hermione.jpeg" alt="Hermione Granger">
+                    <p>Hermione Granger</p>
+                </div>
+                <div class="character">
+                    <img src="ron.jpg" alt="Ron Weasley">
+                    <p>Ron Weasley</p>
+                </div>
+                <div class="character">
+                    <img src="dumbledore.jpg" alt="Albus Dumbledore">
+                    <p>Albus Dumbledore</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="photo1.jpg" alt="Harry with his new wand">
+                <img src="photo2.jpg" alt="Ron Hermione and Harry">
+                <img src="photo3.jpg" alt="Harry and Malfoy">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Mabel Perez, 2024.
+            This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.
+        </p>
+    </footer>
+</body>
+</html>
